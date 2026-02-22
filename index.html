@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Hospitalar</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Clínica</h2>
+    <ul>
+        <li onclick="mostrarDashboard()">Dashboard</li>
+        <li onclick="mostrarCadastro()">Cadastro</li>
+    </ul>
+</div>
+
+<div class="main">
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="page">
+        <h1>Dashboard</h1>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Total Profissionais Ativos</h3>
+                <p id="totalProfissionais">0</p>
+            </div>
+            <div class="card">
+                <h3>Médicos(a)</h3>
+                <p id="totalMedicos">0</p>
+            </div>
+            <div class="card">
+                <h3>Enfermeiros(a)</h3>
+                <p id="totalEnfermeiros">0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CADASTRO -->
+    <div id="cadastro" class="page" style="display:none;">
+        <h1>Cadastro de Profissionais</h1>
+
+        <form id="formCadastro">
+
+            <div class="linha-nome-foto">
+                <input type="text" id="nome" placeholder="Nome Completo" required>
+
+                <!-- INPUT FILE OCULTO -->
+                <input type="file" id="foto" accept="image/*" hidden>
+
+                <!-- BOTÃO PERSONALIZADO -->
+                <label for="foto" class="btn-file">Escolher arquivo</label>
+            </div>
+
+            <select id="cargo" required 
+                onchange="alterarValidacaoRegistro(); alterarCampoEspecialidade();">
+                <option value="">Selecione o Cargo</option>
+                <option value="Médico">Médico(a)</option>
+                <option value="Enfermeiro">Enfermeiro(a)</option>
+                <option value="Técnico de Enfermagem">Técnico de Enfermagem</option>
+                <option value="Fisioterapeuta">Fisioterapeuta</option>
+                <option value="Psicólogo">Psicólogo(a)</option>
+                <option value="Nutricionista">Nutricionista</option>
+                <option value="Farmacêutico">Farmacêutico(a)</option>
+                <option value="Biomédico">Biomédico(a)</option>
+                <option value="Fonoaudiólogo">Fonoaudiólogo(a)</option>
+                <option value="Terapeuta Ocupacional">Terapeuta Ocupacional</option>
+            </select>
+
+            <input type="text" id="registro"
+                placeholder="Selecione o cargo"
+                disabled>
+
+            <div id="campoEspecialidade"></div>
+
+            <input type="email" id="email" placeholder="Email" required>
+
+            <input type="tel" id="telefone"
+                placeholder="(11) 98765-4321"
+                pattern="\(\d{2}\)\s\d{4,5}-\d{4}"
+                required>
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
+        <h2>Lista de Profissionais</h2>
+
+        <!-- FILTROS -->
+        <div style="margin-bottom:15px; display:flex; gap:10px; flex-wrap:wrap;">
+
+            <select id="filtro" onchange="filtrar()">
+                <option value="Todos">Todos</option>
+                <option value="Médico">Médico(a)</option>
+                <option value="Enfermeiro">Enfermeiro(a)</option>
+                <option value="Técnico de Enfermagem">Técnico de Enfermagem</option>
+                <option value="Fisioterapeuta">Fisioterapeuta</option>
+                <option value="Psicólogo">Psicólogo(a)</option>
+                <option value="Nutricionista">Nutricionista</option>
+                <option value="Farmacêutico">Farmacêutico(a)</option>
+                <option value="Biomédico">Biomédico(a)</option>
+                <option value="Fonoaudiólogo">Fonoaudiólogo(a)</option>
+                <option value="Terapeuta Ocupacional">Terapeuta Ocupacional</option>
+            </select>
+
+            <select id="filtroEspecialidade" onchange="filtrar()" style="display:none;">
+                <option value="Todas">Todas Especialidades</option>
+                <option>Clínica Geral</option>
+                <option>Cardiologia</option>
+                <option>Dermatologia</option>
+                <option>Endocrinologia</option>
+                <option>Ginecologia</option>
+                <option>Neurologia</option>
+                <option>Ortopedia</option>
+                <option>Pediatria</option>
+                <option>Psiquiatria</option>
+                <option>Urologia</option>
+            </select>
+
+            <select id="filtroStatus" onchange="filtrar()">
+                <option value="Todos">Todos Status</option>
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+            </select>
+
+        </div>
+
+        <div id="tabela" class="lista-cards"></div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
