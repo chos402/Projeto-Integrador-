@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teksystem — Faturamento</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <img src="data:image/png;base64,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" alt="Teksystem" class="sidebar-logo-img" />
+  </div>
+
+  <div class="sidebar-search">
+    <div class="sidebar-search-wrap">
+      <i class="bi bi-search"></i>
+      <input type="text" placeholder="Search for..." />
+    </div>
+  </div>
+
+  <nav class="nav-section">
+    <!-- Casa com portal -->
+    <div class="nav-item active" onclick="setNav(this)">
+      <i class="bi bi-house-door"></i> Clínica
+    </div>
+    <!-- Dois retângulos sobrepostos -->
+    <div class="nav-item" onclick="setNav(this)">
+      <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="3" width="13" height="13" rx="2.5"/>
+        <rect x="3" y="8" width="13" height="13" rx="2.5"/>
+      </svg>
+      Consultas
+    </div>
+    <!-- Duas etiquetas/tags sobrepostas -->
+    <div class="nav-item" onclick="setNav(this)">
+      <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <!-- tag de trás (deslocada para direita) -->
+        <path d="M11.5 3.5H15a1.5 1.5 0 0 1 1.06.44l5 5a1.5 1.5 0 0 1 0 2.12l-5.5 5.5a1.5 1.5 0 0 1-2.12 0l-5-5A1.5 1.5 0 0 1 8 10.5V7"/>
+        <circle cx="14" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        <!-- tag da frente -->
+        <path d="M7.5 2.5H11a1.5 1.5 0 0 1 1.06.44l5 5a1.5 1.5 0 0 1 0 2.12l-5.5 5.5a1.5 1.5 0 0 1-2.12 0l-5-5A1.5 1.5 0 0 1 4 9.5V6a1.5 1.5 0 0 1 1.5-1.5h2z"/>
+        <circle cx="7.5" cy="6" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+      Pacientes
+    </div>
+    <!-- Dois perfis de pessoas -->
+    <div class="nav-item" onclick="setNav(this)">
+      <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <!-- pessoa da frente -->
+        <circle cx="9" cy="7" r="3"/>
+        <path d="M2 21v-1a7 7 0 0 1 7-7v0a7 7 0 0 1 7 7v1"/>
+        <!-- pessoa atrás (direita, menor) -->
+        <circle cx="17" cy="7" r="2.5"/>
+        <path d="M22 21v-1a5 5 0 0 0-5-5"/>
+      </svg>
+      Profissionais
+    </div>
+    <!-- Cartão com engrenagem sobreposta no canto inferior direito -->
+    <div class="nav-item" onclick="setNav(this)">
+      <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <!-- câmera de trás -->
+        <rect x="2" y="7" width="16" height="12" rx="2"/>
+        <circle cx="10" cy="13" r="3"/>
+        <path d="M6 7V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1"/>
+        <!-- câmera da frente (sobreposta, deslocada) -->
+        <rect x="6" y="4" width="16" height="12" rx="2"/>
+        <circle cx="14" cy="10" r="3"/>
+        <path d="M10 4V3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1"/>
+      </svg>
+      Planos de Saúde
+    </div>
+    <!-- Avião inclinado -->
+    <div class="nav-item" onclick="setNav(this)">
+      <i class="bi bi-airplane" style="transform: rotate(45deg); display:inline-block;"></i> Urgência
+      <i class="bi bi-chevron-down nav-arrow"></i>
+    </div>
+  </nav>
+</aside>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-btn notif-dot" title="Notificações">
+    <i class="bi bi-bell"></i>
+  </div>
+  <div class="topbar-btn" title="Perfil">
+    <i class="bi bi-person-circle"></i>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main">
+
+  <div class="page-header">
+    <h1 class="page-title">Faturamento</h1>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="filter-bar">
+    <div class="search-input-wrap">
+      <i class="bi bi-search"></i>
+      <input type="text" id="searchInput" placeholder="Buscar paciente…" oninput="renderTable()" />
+    </div>
+
+    <div class="select-wrap">
+      <i class="bi bi-calendar3"></i>
+      <select id="dateStart" onchange="renderTable()">
+        <option value="">Data Inicial</option>
+        <option value="2024-04-10">10/04/2024</option>
+        <option value="2024-04-08">08/04/2024</option>
+        <option value="2024-04-05">05/04/2024</option>
+        <option value="2024-04-02">02/04/2024</option>
+      </select>
+    </div>
+
+    <div class="select-wrap">
+      <i class="bi bi-calendar3"></i>
+      <select id="dateEnd" onchange="renderTable()">
+        <option value="">Data Final</option>
+        <option value="2024-04-10">10/04/2024</option>
+        <option value="2024-04-08">08/04/2024</option>
+        <option value="2024-04-05">05/04/2024</option>
+        <option value="2024-04-02">02/04/2024</option>
+      </select>
+    </div>
+
+    <select id="statusFilter" class="status-select" onchange="renderTable()">
+      <option value="">Status</option>
+      <option value="Pendente">Pendente</option>
+      <option value="Pago">Pago</option>
+      <option value="Cancelado">Cancelado</option>
+    </select>
+
+    <button class="btn-filter" onclick="renderTable()">Filtrar</button>
+  </div>
+
+  <!-- KPI CARDS -->
+  <div class="kpi-row">
+    <div class="kpi-card pending">
+      <div class="kpi-label">Pendentes</div>
+      <div class="kpi-value" id="kpiPending">R$ 0,00</div>
+    </div>
+    <div class="kpi-card paid">
+      <div class="kpi-label">Pagos</div>
+      <div class="kpi-value" id="kpiPaid">R$ 0,00</div>
+    </div>
+    <div class="kpi-card canceled">
+      <div class="kpi-label">Cancelados</div>
+      <div class="kpi-value" id="kpiCanceled">R$ 0,00</div>
+    </div>
+  </div>
+
+  <!-- TABELA -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortBy('paciente')">Paciente <i class="bi bi-arrow-down-up"></i></th>
+          <th onclick="sortBy('data')">Data <i class="bi bi-arrow-down-up"></i></th>
+          <th onclick="sortBy('convenio')">Convênio <i class="bi bi-arrow-down-up"></i></th>
+          <th onclick="sortBy('valor')">Valor <i class="bi bi-arrow-down-up"></i></th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+  <button class="btn-primary" onclick="openModal()">
+    <i class="bi bi-plus-lg"></i> Nova Fatura
+  </button>
+  <button class="btn-secondary" onclick="gerarRelatorio()">
+    <i class="bi bi-download"></i> Gerar Relatório
+  </button>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modalTitle">Nova Fatura</span>
+      <button class="modal-close" onclick="closeModal()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="formPaciente">Paciente</label>
+      <input type="text" class="form-control" id="formPaciente" placeholder="Nome do paciente" />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="formData">Data</label>
+      <input type="date" class="form-control" id="formData" />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="formConvenio">Convênio</label>
+      <select class="form-control" id="formConvenio">
+        <option value="Particular">Particular</option>
+        <option value="Unimed">Unimed</option>
+        <option value="Amil">Amil</option>
+        <option value="Bradesco Saúde">Bradesco Saúde</option>
+        <option value="SulAmérica">SulAmérica</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="formValor">Valor (R$)</label>
+      <input type="number" class="form-control" id="formValor" placeholder="0,00" min="0" step="0.01" />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="formStatus">Status</label>
+      <select class="form-control" id="formStatus">
+        <option value="Pendente">Pendente</option>
+        <option value="Pago">Pago</option>
+        <option value="Cancelado">Cancelado</option>
+      </select>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
+      <button class="btn-primary" onclick="saveFatura()">
+        <i class="bi bi-check-lg"></i> Salvar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- TOASTS -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
